@@ -282,8 +282,7 @@ mod tipbot {
                 Some(value) if *value >= amount => {
                     *value -= amount;
                     panic_on_err! {
-                        self
-                            .env()
+                        self.env()
                             .transfer(target, amount)
                             .map_err(|_| Error::BelowSubsistenceThreshold)
                     }
